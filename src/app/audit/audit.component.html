@@ -1,0 +1,32 @@
+<h1>Hi {{currentUser.firstName}}!</h1>
+<p>You're logged in with Angular 8!!</p>
+<h3>All login audit :</h3>
+
+<nav class="navbar">
+    <input class="form-control" type="text" name="id" [(ngModel)]="id" (ngModelChange)="Search()">
+</nav>
+<select>
+    <option>Change Format</option>
+    <option>12</option>
+     <option>24</option>
+</select>
+
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+            <th scope="col" (click)="sortuser()">users</th>
+            <th scope="col" (click)="sortid()">id</th>
+            <th scope="col">loginTime</th>
+            <th scope="col">logoutTime</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let audit of audits">
+        <tr>
+            <td class="badge badge-primary">{{audit.user}}</td>
+            <td class="badge badge-secondary">{{audit._id}}</td>
+            <td>Login - {{audit.loginTime}}</td>
+            <td>Login - {{audit.logoutTime}}</td>
+            <td>IP - {{audit.ip}}</td>
+        </tr>
+    </tbody>
+</table>
